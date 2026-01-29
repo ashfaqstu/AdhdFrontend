@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: focus_butler
+      POSTGRES_PASSWORD: "NHs6BH11m6CzSu4z1n2eDZrQiUean6J6"
+    volumes:
+      - focus_butler_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "QU-fGMh-cF7ueFAKkHJhsAFgjxorOxkH"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: focus_butler_test
+      POSTGRES_PASSWORD: "39ztvhGQ5i2KBcKmfaWrj9N4nV_oxYn4"
+    volumes:
+      - focus_butler_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "S-oaT9LLnRM9fO4J4RCuVPFNuqCr2Gtw"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  focus_butler_data:
+  focus_butler_test_data:
