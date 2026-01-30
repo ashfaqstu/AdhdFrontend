@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../screens/lobby_screen.dart';
+import '../screens/reader_screen.dart';
 
 /// Route names for type-safe navigation
 class AppRoutes {
@@ -24,7 +25,7 @@ final GoRouter appRouter = GoRouter(
       path: '/reader/:id',
       builder: (context, state) {
         final id = state.pathParameters['id'] ?? 'unknown';
-        return ReaderPlaceholder(id: id);
+        return ReaderScreen(bookId: id);
       },
     ),
     GoRoute(
