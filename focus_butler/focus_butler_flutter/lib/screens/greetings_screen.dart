@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../main.dart';
 
-class GreetingsScreen extends StatefulWidget {
+class GreetingsScreen extends ConsumerStatefulWidget {
   final Future<void> Function()? onSignOut;
   const GreetingsScreen({super.key, this.onSignOut});
 
   @override
-  State<GreetingsScreen> createState() => _GreetingsScreenState();
+  ConsumerState<GreetingsScreen> createState() => _GreetingsScreenState();
 }
 
-class _GreetingsScreenState extends State<GreetingsScreen> {
+class _GreetingsScreenState extends ConsumerState<GreetingsScreen> {
   /// Holds the last result or null if no result exists yet.
   String? _resultMessage;
 
@@ -25,6 +26,7 @@ class _GreetingsScreenState extends State<GreetingsScreen> {
   /// is successful.
   void _callHello() async {
     try {
+      final client = ref.read(clientProvider);
       final result = await client.greeting.hello(_textEditingController.text);
       setState(() {
         _errorMessage = null;

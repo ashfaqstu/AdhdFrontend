@@ -1,0 +1,255 @@
+﻿SERVERPOD version: 3.2.3, dart: 3.10.8 (stable) (Tue Jan 27 00:02:04 2026 -0800) on "windows_x64", time: 2026-01-30 07:06:35.042409Z
+runMode: development
+serverId: default
+role: monolith
+loggingMode: normal
+applyMigrations: false
+applyRepairMigration: false
+SERVERPOD initialized, time: 2026-01-30 07:06:35.135265Z
+dart.exe : 2026-01-30 
+07:06:36.626462Z ERROR: 
+Failed to bind socket, port 
+8081 may already be in use.
+At line:1 char:1
++ & dart run bin/main.dart 
+2>&1 | Out-File -FilePath 
+error.txt -Encodin ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo          
+    : NotSpecified: (2026-  
+  01-30 07:0...eady be in   
+  use.:String) [], Remot    
+eException
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
+2026-01-30 07:06:36.626462Z 
+ERROR: SocketException: 
+Failed to create server 
+socket (OS Error: Only one 
+usage of each socket 
+address (protocol/network 
+address/port) is normally 
+permitted, errno = 10048), 
+address = ::, port = 8081
+#0      _NativeSocket.bind (
+dart:io-patch/socket_patch.d
+art:1220:7)
+<asynchronous suspension>
+#1      _RawServerSocket.bin
+d.<anonymous closure> (dart:
+io-patch/socket_patch.dart:2
+166:12)
+<asynchronous suspension>
+#2      _ServerSocket.bind.<
+anonymous closure> (dart:io-
+patch/socket_patch.dart:2489
+:12)
+<asynchronous suspension>
+#3      
+_HttpServer.bind.<anonymous 
+closure> (dart:_http/http_im
+pl.dart:3472:24)
+<asynchronous suspension>
+#4      bindHttpServer (pack
+age:relic/src/adapter/io/bin
+d_http_server.dart:31:12)
+<asynchronous suspension>
+#5      IOAdapter.bind (pack
+age:relic/src/adapter/io/io_
+adapter.dart:53:7)
+<asynchronous suspension>
+#6      
+_RelicServer.mountAndStart (
+package:relic/src/relic_serv
+er.dart:62:16)
+<asynchronous suspension>
+#7      RelicApp._init (pack
+age:relic/src/router/relic_a
+pp.dart:79:5)
+<asynchronous suspension>
+#8      RelicApp.run (packag
+e:relic/src/router/relic_app
+.dart:66:5)
+<asynchronous suspension>
+#9      Server.start (packag
+e:serverpod/src/server/serve
+r.dart:167:22)
+<asynchronous suspension>
+#10     
+Serverpod._unguardedStart (p
+ackage:serverpod/src/server/
+serverpod.dart:698:13)
+<asynchronous suspension>
+#11     
+Serverpod.start.<anonymous 
+closure> (package:serverpod/
+src/server/serverpod.dart:62
+5:9)
+<asynchronous suspension>
+#12     Serverpod.start (pac
+kage:serverpod/src/server/se
+rverpod.dart:624:7)
+<asynchronous suspension>
+#13     run (package:focus_b
+utler_server/server.dart:77:
+3)
+<asynchronous suspension>
+
+2026-01-30 07:06:36.631485Z 
+ERROR: Failed to bind 
+socket, port 8080 may 
+already be in use.
+2026-01-30 07:06:36.631485Z 
+ERROR: SocketException: 
+Failed to create server 
+socket (OS Error: Only one 
+usage of each socket 
+address (protocol/network 
+address/port) is normally 
+permitted, errno = 10048), 
+address = ::, port = 8080
+#0      _NativeSocket.bind (
+dart:io-patch/socket_patch.d
+art:1220:7)
+<asynchronous suspension>
+#1      _RawServerSocket.bin
+d.<anonymous closure> (dart:
+io-patch/socket_patch.dart:2
+166:12)
+<asynchronous suspension>
+#2      _ServerSocket.bind.<
+anonymous closure> (dart:io-
+patch/socket_patch.dart:2489
+:12)
+<asynchronous suspension>
+#3      
+_HttpServer.bind.<anonymous 
+closure> (dart:_http/http_im
+pl.dart:3472:24)
+<asynchronous suspension>
+#4      bindHttpServer (pack
+age:relic/src/adapter/io/bin
+d_http_server.dart:31:12)
+<asynchronous suspension>
+#5      IOAdapter.bind (pack
+age:relic/src/adapter/io/io_
+adapter.dart:53:7)
+<asynchronous suspension>
+#6      
+_RelicServer.mountAndStart (
+package:relic/src/relic_serv
+er.dart:62:16)
+<asynchronous suspension>
+#7      RelicApp._init (pack
+age:relic/src/router/relic_a
+pp.dart:79:5)
+<asynchronous suspension>
+#8      RelicApp.run (packag
+e:relic/src/router/relic_app
+.dart:66:5)
+<asynchronous suspension>
+#9      Server.start (packag
+e:serverpod/src/server/serve
+r.dart:167:22)
+<asynchronous suspension>
+#10     
+Serverpod._unguardedStart (p
+ackage:serverpod/src/server/
+serverpod.dart:705:25)
+<asynchronous suspension>
+#11     
+Serverpod.start.<anonymous 
+closure> (package:serverpod/
+src/server/serverpod.dart:62
+5:9)
+<asynchronous suspension>
+#12     Serverpod.start (pac
+kage:serverpod/src/server/se
+rverpod.dart:624:7)
+<asynchronous suspension>
+#13     run (package:focus_b
+utler_server/server.dart:77:
+3)
+<asynchronous suspension>
+
+2026-01-30 07:06:36.647607Z 
+WebServer ERROR: Failed to 
+bind socket, port 8082 may 
+already be in use. 
+SocketException: Failed to 
+create server socket (OS 
+Error: Only one usage of 
+each socket address 
+(protocol/network 
+address/port) is normally 
+permitted, errno = 10048), 
+address = ::, port = 8082
+#0      _NativeSocket.bind (
+dart:io-patch/socket_patch.d
+art:1220:7)
+<asynchronous suspension>
+#1      _RawServerSocket.bin
+d.<anonymous closure> (dart:
+io-patch/socket_patch.dart:2
+166:12)
+<asynchronous suspension>
+#2      _ServerSocket.bind.<
+anonymous closure> (dart:io-
+patch/socket_patch.dart:2489
+:12)
+<asynchronous suspension>
+#3      
+_HttpServer.bind.<anonymous 
+closure> (dart:_http/http_im
+pl.dart:3472:24)
+<asynchronous suspension>
+#4      bindHttpServer (pack
+age:relic/src/adapter/io/bin
+d_http_server.dart:31:12)
+<asynchronous suspension>
+#5      IOAdapter.bind (pack
+age:relic/src/adapter/io/io_
+adapter.dart:53:7)
+<asynchronous suspension>
+#6      
+_RelicServer.mountAndStart (
+package:relic/src/relic_serv
+er.dart:62:16)
+<asynchronous suspension>
+#7      RelicApp._init (pack
+age:relic/src/router/relic_a
+pp.dart:79:5)
+<asynchronous suspension>
+#8      RelicApp.run (packag
+e:relic/src/router/relic_app
+.dart:66:5)
+<asynchronous suspension>
+#9      WebServer.start (pac
+kage:serverpod/src/web_serve
+r/web_server.dart:119:22)
+<asynchronous suspension>
+#10     
+Serverpod._unguardedStart (p
+ackage:serverpod/src/server/
+serverpod.dart:713:27)
+<asynchronous suspension>
+#11     
+Serverpod.start.<anonymous 
+closure> (package:serverpod/
+src/server/serverpod.dart:62
+5:9)
+<asynchronous suspension>
+#12     Serverpod.start (pac
+kage:serverpod/src/server/se
+rverpod.dart:624:7)
+<asynchronous suspension>
+#13     run (package:focus_b
+utler_server/server.dart:77:
+3)
+<asynchronous suspension>
+
+Failed to start the 
+Serverpod servers, see logs 
+for details.
