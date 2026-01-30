@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../screens/galaxy_screen.dart';
 import '../screens/lobby_screen.dart';
 import '../screens/reader_screen.dart';
 
@@ -31,7 +32,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       name: AppRoutes.galaxy,
       path: '/galaxy',
-      builder: (context, state) => const GalaxyPlaceholder(),
+      builder: (context, state) => const GalaxyScreen(),
     ),
   ],
 );

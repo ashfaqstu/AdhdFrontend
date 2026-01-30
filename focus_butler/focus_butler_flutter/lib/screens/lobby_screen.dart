@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:file_picker/file_picker.dart';
 
 import '../core/theme.dart';
 import '../widgets/glass_box.dart';
@@ -154,6 +155,51 @@ class _LobbyScreenState extends ConsumerState<LobbyScreen> {
     );
   }
 
+  Future<void> _uploadBook() async {
+    final colors = Theme.of(context).extension<FocusButlerColors>()!;
+    HapticFeedback.lightImpact();
+
+    try {
+      final result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf'],
+      );
+
+      if (result != null && result.files.isNotEmpty) {
+        final file = result.files.first;
+        debugPrint('Uploading ${file.name}...');
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Row(
+                children: [
+                  SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: colors.neonCyan,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text('Uploading ${file.name}...'),
+                  ),
+                ],
+              ),
+              backgroundColor: colors.matteDark,
+              behavior: SnackBarBehavior.floating,
+              duration: const Duration(seconds: 3),
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      debugPrint('File picker error: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final books = ref.watch(knowledgeStateProvider);
@@ -294,6 +340,78 @@ class _LobbyScreenState extends ConsumerState<LobbyScreen> {
                       ),
                     ),
                   ],
+                ),
+              ),
+            ),
+
+            // Upload Button - Top Left (Glassmorphism)
+            Positioned(
+              top: 16,
+              left: 16,
+              child: GestureDetector(
+                onTap: _uploadBook,
+                child: GlassBox(
+                  borderRadius: 26,
+                  blur: 10,
+                  opacity: 0.1,
+                  child: Container(
+                    width: 52,
+                    height: 52,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: colors.neonCyan.withValues(alpha: 0.3),
+                        width: 1,
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.add,
+                      color: colors.neonCyan,
+                      size: 28,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            // Galaxy Button - Bottom Center
+            Positioned(
+              bottom: 40,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: GestureDetector(
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                    context.go('/galaxy');
+                  },
+                  child: GlassBox(
+                    borderRadius: 25,
+                    blur: 15,
+                    opacity: 0.15,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.stars_outlined,
+                          color: colors.softAmber,
+                          size: 20,
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Knowledge Galaxy',
+                          style: TextStyle(
+                            color: colors.cloudDancer,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
